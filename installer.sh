@@ -198,7 +198,7 @@ sudo pacman -Syu
 #makepkg -si
 
 ## setting locale
-
+localectl set-x11-keymap us altgr-intl
 
 # ---------------------------------------------------------------------- #
 ## Install programs Pacman
