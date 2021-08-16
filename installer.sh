@@ -68,6 +68,7 @@ netcat
 openssh
 openssh-server
 htop
+lxappearance
 #synaptic              #System|program manager
 neofetch              #System|verify info term
 #gufw                  #System|firewall for linux
@@ -133,6 +134,7 @@ spotify-tui
 pacmixer
 openrazer-meta
 xorg-xrdb
+pywalfox
 )
 # --------------------------------------------------------------------------- #
 #Programs select from Flathub store <https://flathub.org/home>
@@ -194,6 +196,9 @@ sudo pacman -Syu
 #git clone https://aur.archlinux.org/yay.git
 #cd yay
 #makepkg -si
+
+## setting locale
+
 
 # ---------------------------------------------------------------------- #
 ## Install programs Pacman
