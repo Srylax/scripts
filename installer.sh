@@ -22,8 +22,9 @@ echo ' \n Auto install Programs!!!! \n	'
 #APT command line package used to install programs Debian/Ubuntu distros stores
 # -----------------------------VARIABLES APT-------------------------------- #
 PACMAN_INSTALL=(
-discord
+#discord
 firefox
+dmenu
 xmonad
 xmonad-contrib
 xmobar
@@ -31,6 +32,7 @@ xorg-server
 xorg-apps
 xorg-utils
 xserver-utils
+xorg-xinit
 wget
 curl
 unzip
@@ -71,6 +73,7 @@ neofetch              #System|verify info term
 #gufw                  #System|firewall for linux
 # git #git-lfs           #System|control modifications
 #stacer                #System|clean and monitor programs
+nitrogen
 alacritty             #System|GPU enhanced terminal
 #timeshift             #System|backup
 #virtualbox-qt         #System|emulate OS	'sudo adduser $USER vboxusers'
@@ -181,19 +184,22 @@ xorg-xrdb
 # sudo dpkg --add-architecture i386
 
 ## Updating the repository ##
+echo "Updating system..."
 sudo pacman -Syu
 
 ##installing yay
-sudo pacman -Sy --needed git base-devel
-mkdir dev/workspaces/
-cd dev/workspaces/
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
+#clear
+#echo "installing yay"
+#sudo pacman -Sy --needed git base-devel
+#git clone https://aur.archlinux.org/yay.git
+#cd yay
+#makepkg -si
 
 # ---------------------------------------------------------------------- #
 ## Install programs Pacman
 for pacman_program in ${PACMAN_INSTALL[@]}; do
+  clear
+  echo "installing $pacman_program"
   sudo pacman -Sy --needed "$pacman_program"
   echo "[successful installation] - $pacman_program"
 done
@@ -201,6 +207,8 @@ done
 ## Install programs yay
 for yay_program in ${YAY_INSTALL[@]}; do
   if ! dpkg -l | grep -q $ysy_program; then # Just install if not exist
+    clear
+    echo "installing $yay_program"
     yay -Sy --needed "$yay_program"
   fi
 done
